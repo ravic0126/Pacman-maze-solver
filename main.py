@@ -2,10 +2,10 @@ from maze import *
 from navigator import *
 
 def is_valid(x : int, y : int, rows : int, cols : int) -> bool:
-    if(x < 0 or x >= rows):
+    if(x < 0 or x > rows):
         print("The row of cell", (x, y), "is out of bounds, hence this path is invalid.")
         return False
-    elif(y < 0 or y >= cols):
+    elif(y < 0 or y > cols):
         print("The column of cell", (x, y), "is out of bounds, hence this path is invalid.")
         return False
     return True
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     grid_rows = 4
     grid_cols = 4
     ghosts = [(0, 1), (2, 2), (3, 1)]
-    start_point = (2, 0)
+    start_point = (0,1)
     end_point = (2, 3)
 
     ## This is where the checker logic starts
@@ -47,7 +47,7 @@ if __name__ == "__main__":
             isPathValid = False
         allCells = set()
         for cell in path:
-            if(is_valid(cell[0], cell[1], grid_rows, grid_cols) and sample_grid.grid_representation[cell[0]][cell[1]] == 1):
+            if(is_valid(cell[0], cell[1], 4, 4) and sample_grid.grid_representation[cell[0]][cell[1]] == 1):
                 print("The cell", cell, "that you have in your path is not vacant, hence this path is invalid.")
                 isPathValid = False
             if(cell in allCells):

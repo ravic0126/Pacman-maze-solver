@@ -11,13 +11,17 @@ class Maze:
     
     def add_ghost(self, x : int, y: int) -> None:
         # IMPLEMENT YOUR FUNCTION HERE
+        self.grid_representation[x][y]=1
         pass
     def remove_ghost(self, x : int, y: int) -> None:
         # IMPLEMENT YOUR FUNCTION HERE
+        self.grid_representation[x][y]=0
         pass
     def is_ghost(self, x : int, y: int) -> bool:
         # IMPLEMENT YOUR FUNCTION HERE
-        return False
+        return self.grid_representation[x][y]==1
     def print_grid(self) -> None:
         # IMPLEMENT YOUR FUNCTION HERE
+        for i in self.grid_representation:
+            print(" ".join(map(str,i)))
         return False
